@@ -35,7 +35,6 @@ class HomePageController: UIViewController {
             self.pedoMeter.startUpdates(from: midnight) { (data: CMPedometerData?, error) -> Void in
                 DispatchQueue.main.async(execute: { () -> Void in
                     if(error == nil){
-                        print("\(data!.numberOfSteps)")
                         self.stepCount.text = "\(data!.numberOfSteps)"
                     }
                 })

@@ -25,13 +25,18 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSHealthShareUsageDescription</key>
+	<string>aliveSFU uses HealthKit to analyze your sleep</string>
+	<key>NSMotionUsageDescription</key>
+	<string>aliveSFU uses iPhone's pedometer to track your Step Count</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
+	<string>login</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
+		<string>healthkit</string>
 	</array>
 	<key>UIStatusBarTintParameters</key>
 	<dict>
@@ -43,8 +48,6 @@
 			<false/>
 		</dict>
 	</dict>
-	<key>NSMotionUsageDescription</key>
-	<string>aliveSFU uses iPhone&apos;s pedometer to track your Step Count</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

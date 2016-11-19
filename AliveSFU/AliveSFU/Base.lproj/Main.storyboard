@@ -383,36 +383,392 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8C-nx-OwB" userLabel="Graph View" customClass="JBBarChartView">
-                                <rect key="frame" x="15" y="72" width="345" height="34"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y5B-0r-waK">
-                                <rect key="frame" x="14.5" y="146" width="345" height="40"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jel-Vt-EYS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sleep Analysis for last night" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXn-HN-m5R">
-                                        <rect key="frame" x="0.0" y="0.0" width="345" height="40"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4th-vY-ch6" userLabel="Graph View" customClass="JBBarChartView">
+                                        <rect key="frame" x="15" y="72" width="345" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u0g-K9-Pha">
+                                        <rect key="frame" x="14.5" y="126" width="345" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sleep Analysis for last night" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I23-0H-1pv">
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="40"/>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
+                                                <color key="textColor" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="I23-0H-1pv" firstAttribute="width" secondItem="u0g-K9-Pha" secondAttribute="width" id="0AK-f7-MnG"/>
+                                            <constraint firstAttribute="height" constant="40" id="2iQ-NN-WCC"/>
+                                            <constraint firstItem="I23-0H-1pv" firstAttribute="centerX" secondItem="u0g-K9-Pha" secondAttribute="centerX" id="J2H-rK-AjD"/>
+                                            <constraint firstItem="I23-0H-1pv" firstAttribute="height" secondItem="u0g-K9-Pha" secondAttribute="height" id="QGG-L1-zGN"/>
+                                            <constraint firstItem="I23-0H-1pv" firstAttribute="centerY" secondItem="u0g-K9-Pha" secondAttribute="centerY" id="elX-oQ-cDa"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="D5r-lg-NMl" userLabel="Row1">
+                                        <rect key="frame" x="15" y="191" width="345" height="80"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3GG-G8-T1b" userLabel="Col1">
+                                                <rect key="frame" x="0.0" y="0.0" width="152.5" height="80"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total hours in bed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHV-eU-blU">
+                                                        <rect key="frame" x="0.0" y="0.0" width="152.5" height="40"/>
+                                                        <color key="backgroundColor" red="0.71168619389999999" green="0.0" blue="0.158918798" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                <integer key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAz-hj-5tB" userLabel="hoursBed">
+                                                        <rect key="frame" x="0.0" y="40" width="152.5" height="40"/>
+                                                        <color key="backgroundColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                <integer key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="nAz-hj-5tB" firstAttribute="height" secondItem="wHV-eU-blU" secondAttribute="height" id="4aa-ID-MLk"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xp3-Qi-sKb" userLabel="Col2">
+                                                <rect key="frame" x="192.5" y="0.0" width="152.5" height="80"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total hours slept" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vna-c0-ZjC">
+                                                        <rect key="frame" x="0.0" y="0.0" width="152.5" height="40"/>
+                                                        <color key="backgroundColor" red="0.71168619389999999" green="0.0" blue="0.158918798" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                <integer key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uGm-jG-2UZ" userLabel="hoursSlept">
+                                                        <rect key="frame" x="0.0" y="40" width="152.5" height="40"/>
+                                                        <color key="backgroundColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                <integer key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="uGm-jG-2UZ" firstAttribute="height" secondItem="Vna-c0-ZjC" secondAttribute="height" id="4qU-Gi-Rod"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="3GG-G8-T1b" firstAttribute="width" secondItem="xp3-Qi-sKb" secondAttribute="width" id="OhB-GB-Mnp"/>
+                                            <constraint firstAttribute="height" constant="80" id="ZCd-oR-FWB"/>
+                                        </constraints>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wNx-NH-ieD" userLabel="Row2">
+                                        <rect key="frame" x="15" y="290.5" width="345" height="80"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Q0p-df-0O8" userLabel="Col1">
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="80"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% of time spent sleeping" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOd-K5-a1T">
+                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="40"/>
+                                                        <color key="backgroundColor" red="0.71168619389999999" green="0.0" blue="0.158918798" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                <integer key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxu-vz-KCE" userLabel="percentageSleeping">
+                                                        <rect key="frame" x="0.0" y="40" width="345" height="40"/>
+                                                        <color key="backgroundColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                <integer key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="vOd-K5-a1T" firstAttribute="width" secondItem="gxu-vz-KCE" secondAttribute="width" id="k4K-Kk-F1i"/>
+                                                    <constraint firstItem="vOd-K5-a1T" firstAttribute="height" secondItem="gxu-vz-KCE" secondAttribute="height" id="mi1-zk-CQE"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Q0p-df-0O8" firstAttribute="width" secondItem="wNx-NH-ieD" secondAttribute="width" id="M2n-F7-vbT"/>
+                                            <constraint firstItem="Q0p-df-0O8" firstAttribute="centerY" secondItem="wNx-NH-ieD" secondAttribute="centerY" id="TVF-JD-bxb"/>
+                                            <constraint firstItem="Q0p-df-0O8" firstAttribute="centerX" secondItem="wNx-NH-ieD" secondAttribute="centerX" id="baG-CL-5gY"/>
+                                            <constraint firstItem="Q0p-df-0O8" firstAttribute="height" secondItem="wNx-NH-ieD" secondAttribute="height" id="y3D-AC-tVR"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pg0-kS-sIn" userLabel="Row3">
+                                        <rect key="frame" x="15" y="390.5" width="345" height="80"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kGg-9u-gVa" userLabel="Col1">
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="80"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# of times woken up at night" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jd-tt-0iF">
+                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="40"/>
+                                                        <color key="backgroundColor" red="0.71168619389999999" green="0.0" blue="0.158918798" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                <integer key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSL-O1-KpS" userLabel="countWokenUp">
+                                                        <rect key="frame" x="0.0" y="40" width="345" height="40"/>
+                                                        <color key="backgroundColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                <integer key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="8jd-tt-0iF" firstAttribute="height" secondItem="gSL-O1-KpS" secondAttribute="height" id="V2Q-sg-4l5"/>
+                                                    <constraint firstItem="8jd-tt-0iF" firstAttribute="width" secondItem="gSL-O1-KpS" secondAttribute="width" id="iv0-NZ-63C"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="kGg-9u-gVa" firstAttribute="centerX" secondItem="pg0-kS-sIn" secondAttribute="centerX" id="bwh-AB-Zy6"/>
+                                            <constraint firstItem="kGg-9u-gVa" firstAttribute="width" secondItem="pg0-kS-sIn" secondAttribute="width" id="mdH-tV-abI"/>
+                                            <constraint firstItem="kGg-9u-gVa" firstAttribute="height" secondItem="pg0-kS-sIn" secondAttribute="height" id="t7b-UA-xjc"/>
+                                            <constraint firstItem="kGg-9u-gVa" firstAttribute="centerY" secondItem="pg0-kS-sIn" secondAttribute="centerY" id="xtC-kS-b4q"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXL-Tf-rLR" userLabel="Row4">
+                                        <rect key="frame" x="15" y="490.5" width="345" height="80"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="V2e-et-Mbn" userLabel="Col1">
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="80"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time taken to fall asleep" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQ2-o6-XS0">
+                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="40"/>
+                                                        <color key="backgroundColor" red="0.71168619389999999" green="0.0" blue="0.158918798" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                <integer key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="an9-za-lgD" userLabel="timeFallAsleep">
+                                                        <rect key="frame" x="0.0" y="40" width="345" height="40"/>
+                                                        <color key="backgroundColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                <integer key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="ZQ2-o6-XS0" firstAttribute="width" secondItem="an9-za-lgD" secondAttribute="width" id="cK1-kc-Fp8"/>
+                                                    <constraint firstItem="ZQ2-o6-XS0" firstAttribute="height" secondItem="an9-za-lgD" secondAttribute="height" id="jsG-Sw-Uyi"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="V2e-et-Mbn" firstAttribute="height" secondItem="lXL-Tf-rLR" secondAttribute="height" id="AYK-fh-Bco"/>
+                                            <constraint firstItem="V2e-et-Mbn" firstAttribute="centerX" secondItem="lXL-Tf-rLR" secondAttribute="centerX" id="DK6-oG-APh"/>
+                                            <constraint firstItem="V2e-et-Mbn" firstAttribute="centerY" secondItem="lXL-Tf-rLR" secondAttribute="centerY" id="N3V-mI-xhE"/>
+                                            <constraint firstItem="V2e-et-Mbn" firstAttribute="width" secondItem="lXL-Tf-rLR" secondAttribute="width" id="wgb-Rk-lRD"/>
+                                        </constraints>
+                                    </view>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unable to gather &quot;Asleep&quot; data from HealthKit. Using &quot;On Bed&quot; data as estimate" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8P-uE-wTm" userLabel="AsleepUnavailable">
+                                        <rect key="frame" x="14.5" y="585.5" width="345" height="28"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                        <color key="textColor" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="u0g-K9-Pha" firstAttribute="top" secondItem="4th-vY-ch6" secondAttribute="bottom" constant="20" id="7pn-d8-lOD"/>
+                                    <constraint firstItem="A8P-uE-wTm" firstAttribute="top" secondItem="lXL-Tf-rLR" secondAttribute="bottom" constant="15" id="8cS-dy-z9h"/>
+                                    <constraint firstItem="lXL-Tf-rLR" firstAttribute="width" secondItem="pg0-kS-sIn" secondAttribute="width" id="AIK-xe-EeP"/>
+                                    <constraint firstItem="pg0-kS-sIn" firstAttribute="width" secondItem="wNx-NH-ieD" secondAttribute="width" id="Bxf-Yx-ArE"/>
+                                    <constraint firstItem="wNx-NH-ieD" firstAttribute="height" secondItem="D5r-lg-NMl" secondAttribute="height" id="F5Z-kp-xoe"/>
+                                    <constraint firstItem="pg0-kS-sIn" firstAttribute="top" secondItem="wNx-NH-ieD" secondAttribute="bottom" constant="20" id="GBA-Ra-PuI"/>
+                                    <constraint firstItem="wNx-NH-ieD" firstAttribute="top" secondItem="D5r-lg-NMl" secondAttribute="bottom" constant="20" id="NNU-yZ-T2c"/>
+                                    <constraint firstAttribute="bottom" secondItem="A8P-uE-wTm" secondAttribute="bottom" constant="53.5" id="RAc-hG-aXZ"/>
+                                    <constraint firstItem="4th-vY-ch6" firstAttribute="centerX" secondItem="Jel-Vt-EYS" secondAttribute="centerX" id="Rbe-HN-s1j"/>
+                                    <constraint firstItem="A8P-uE-wTm" firstAttribute="centerX" secondItem="Jel-Vt-EYS" secondAttribute="centerX" id="TPn-Tj-aCW"/>
+                                    <constraint firstItem="wNx-NH-ieD" firstAttribute="width" secondItem="D5r-lg-NMl" secondAttribute="width" id="Tjb-ae-tlP"/>
+                                    <constraint firstItem="4th-vY-ch6" firstAttribute="top" secondItem="Jel-Vt-EYS" secondAttribute="top" constant="72" id="Uac-xa-O5I"/>
+                                    <constraint firstItem="D5r-lg-NMl" firstAttribute="width" secondItem="u0g-K9-Pha" secondAttribute="width" id="Xjr-8k-cCG"/>
+                                    <constraint firstItem="4th-vY-ch6" firstAttribute="width" secondItem="Jel-Vt-EYS" secondAttribute="width" constant="-30" id="YTH-PR-3lW"/>
+                                    <constraint firstItem="u0g-K9-Pha" firstAttribute="width" secondItem="4th-vY-ch6" secondAttribute="width" id="bZh-pr-eUh"/>
+                                    <constraint firstItem="D5r-lg-NMl" firstAttribute="top" secondItem="u0g-K9-Pha" secondAttribute="bottom" constant="25" id="dfF-yK-3sa"/>
+                                    <constraint firstItem="D5r-lg-NMl" firstAttribute="centerX" secondItem="Jel-Vt-EYS" secondAttribute="centerX" id="f5Y-QC-hfu"/>
+                                    <constraint firstItem="A8P-uE-wTm" firstAttribute="width" secondItem="lXL-Tf-rLR" secondAttribute="width" id="gdE-Mg-b41"/>
+                                    <constraint firstItem="lXL-Tf-rLR" firstAttribute="height" secondItem="pg0-kS-sIn" secondAttribute="height" id="hEz-NT-vir"/>
+                                    <constraint firstItem="pg0-kS-sIn" firstAttribute="height" secondItem="wNx-NH-ieD" secondAttribute="height" id="kQg-me-AwV"/>
+                                    <constraint firstItem="u0g-K9-Pha" firstAttribute="centerX" secondItem="Jel-Vt-EYS" secondAttribute="centerX" id="mp6-Bd-mZi"/>
+                                    <constraint firstItem="pg0-kS-sIn" firstAttribute="centerX" secondItem="Jel-Vt-EYS" secondAttribute="centerX" id="r4p-bL-acY"/>
+                                    <constraint firstItem="lXL-Tf-rLR" firstAttribute="top" secondItem="pg0-kS-sIn" secondAttribute="bottom" constant="20" id="y3k-lr-5LJ"/>
+                                    <constraint firstItem="lXL-Tf-rLR" firstAttribute="centerX" secondItem="Jel-Vt-EYS" secondAttribute="centerX" id="yfm-gv-84O"/>
+                                    <constraint firstItem="wNx-NH-ieD" firstAttribute="centerX" secondItem="Jel-Vt-EYS" secondAttribute="centerX" id="ykg-4y-gJg"/>
+                                </constraints>
+                            </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="w10-3b-ch3">
+                                <rect key="frame" x="163" y="238.5" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="w10-3b-ch3" secondAttribute="height" multiplier="1:1" id="MLM-Lq-yeP"/>
+                                    <constraint firstAttribute="width" constant="50" id="aLv-q3-eT3"/>
+                                </constraints>
+                                <color key="color" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r2X-9W-fJy" userLabel="Error View">
+                                <rect key="frame" x="9.5" y="173" width="355" height="320"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error icon" translatesAutoresizingMaskIntoConstraints="NO" id="j5U-MA-OUY">
+                                        <rect key="frame" x="152.5" y="10" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="j5U-MA-OUY" secondAttribute="height" multiplier="1:1" id="CRL-qD-0dB"/>
+                                            <constraint firstAttribute="width" constant="50" id="lho-kS-Uc3"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error accessing sleep data from Health app" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k09-Y5-kmu">
+                                        <rect key="frame" x="15" y="80" width="325" height="57.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
                                         <color key="textColor" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is due to one of the following reasons:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jiD-RQ-muT">
+                                        <rect key="frame" x="15" y="152.5" width="325" height="41.5"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1) No sleep analysis data is available in the Health app" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8rt-SD-E2s" userLabel="reason1">
+                                        <rect key="frame" x="35" y="209" width="285" height="39.5"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2) aliveSFU has not been permitted to read Sleep Analysis data" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8z-jT-lu5" userLabel="reason2">
+                                        <rect key="frame" x="35" y="263.5" width="285" height="39.5"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                        <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="kXn-HN-m5R" firstAttribute="height" secondItem="y5B-0r-waK" secondAttribute="height" id="5d4-E5-chD"/>
-                                    <constraint firstItem="kXn-HN-m5R" firstAttribute="centerX" secondItem="y5B-0r-waK" secondAttribute="centerX" id="Hkg-VQ-HEa"/>
-                                    <constraint firstAttribute="height" constant="40" id="KOH-2h-JaW"/>
-                                    <constraint firstItem="kXn-HN-m5R" firstAttribute="centerY" secondItem="y5B-0r-waK" secondAttribute="centerY" id="Kh5-fh-azr"/>
-                                    <constraint firstItem="kXn-HN-m5R" firstAttribute="width" secondItem="y5B-0r-waK" secondAttribute="width" id="gSe-37-R8J"/>
+                                    <constraint firstItem="k09-Y5-kmu" firstAttribute="centerX" secondItem="r2X-9W-fJy" secondAttribute="centerX" id="37L-dn-x9a"/>
+                                    <constraint firstAttribute="height" constant="320" id="5uB-hW-alZ"/>
+                                    <constraint firstItem="r8z-jT-lu5" firstAttribute="centerX" secondItem="8rt-SD-E2s" secondAttribute="centerX" id="AcC-uO-8E0"/>
+                                    <constraint firstItem="8rt-SD-E2s" firstAttribute="top" secondItem="jiD-RQ-muT" secondAttribute="bottom" constant="15" id="BWx-OJ-8Zh"/>
+                                    <constraint firstItem="j5U-MA-OUY" firstAttribute="centerX" secondItem="r2X-9W-fJy" secondAttribute="centerX" id="SOQ-rf-qk7"/>
+                                    <constraint firstItem="j5U-MA-OUY" firstAttribute="top" secondItem="r2X-9W-fJy" secondAttribute="top" constant="10" id="XWy-L8-17D"/>
+                                    <constraint firstItem="8rt-SD-E2s" firstAttribute="centerX" secondItem="jiD-RQ-muT" secondAttribute="centerX" id="cNm-2U-pld"/>
+                                    <constraint firstItem="k09-Y5-kmu" firstAttribute="top" secondItem="j5U-MA-OUY" secondAttribute="bottom" constant="20" id="dVk-vU-vDY"/>
+                                    <constraint firstItem="8rt-SD-E2s" firstAttribute="width" secondItem="jiD-RQ-muT" secondAttribute="width" constant="-40" id="dmz-O3-8mJ"/>
+                                    <constraint firstItem="r8z-jT-lu5" firstAttribute="width" secondItem="8rt-SD-E2s" secondAttribute="width" id="fsU-oi-muH"/>
+                                    <constraint firstItem="r8z-jT-lu5" firstAttribute="top" secondItem="8rt-SD-E2s" secondAttribute="bottom" constant="15" id="g0s-2J-scs"/>
+                                    <constraint firstItem="jiD-RQ-muT" firstAttribute="top" secondItem="k09-Y5-kmu" secondAttribute="bottom" constant="15" id="hMF-ga-6Wc"/>
+                                    <constraint firstItem="jiD-RQ-muT" firstAttribute="width" secondItem="k09-Y5-kmu" secondAttribute="width" id="l0A-bC-ryj"/>
+                                    <constraint firstItem="jiD-RQ-muT" firstAttribute="centerX" secondItem="k09-Y5-kmu" secondAttribute="centerX" id="uDu-dU-3yi"/>
+                                    <constraint firstItem="k09-Y5-kmu" firstAttribute="width" secondItem="r2X-9W-fJy" secondAttribute="width" constant="-30" id="x9j-Mw-8Q7"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -424,288 +780,34 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="ycJ-jZ-whj" userLabel="Row1">
-                                <rect key="frame" x="15" y="211" width="345" height="80"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rhK-pI-lel" userLabel="Col1">
-                                        <rect key="frame" x="0.0" y="0.0" width="152.5" height="80"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total hours in bed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kmy-n3-I8j">
-                                                <rect key="frame" x="0.0" y="0.0" width="152.5" height="40"/>
-                                                <color key="backgroundColor" red="0.71168619389999999" green="0.0" blue="0.158918798" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbs-CJ-Nhi" userLabel="hoursBed">
-                                                <rect key="frame" x="0.0" y="40" width="152.5" height="40"/>
-                                                <color key="backgroundColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="fbs-CJ-Nhi" firstAttribute="height" secondItem="Kmy-n3-I8j" secondAttribute="height" id="DI5-2E-CCj"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DgI-G8-okj" userLabel="Col2">
-                                        <rect key="frame" x="192.5" y="0.0" width="152.5" height="80"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total hours slept" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sW5-mJ-TNj">
-                                                <rect key="frame" x="0.0" y="0.0" width="152.5" height="40"/>
-                                                <color key="backgroundColor" red="0.71168619389999999" green="0.0" blue="0.158918798" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auY-Yn-NT8" userLabel="hoursSlept">
-                                                <rect key="frame" x="0.0" y="40" width="152.5" height="40"/>
-                                                <color key="backgroundColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="auY-Yn-NT8" firstAttribute="height" secondItem="sW5-mJ-TNj" secondAttribute="height" id="iZX-d4-Q7L"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="rhK-pI-lel" firstAttribute="width" secondItem="DgI-G8-okj" secondAttribute="width" id="zXk-Dh-NXH"/>
-                                    <constraint firstAttribute="height" constant="80" id="zeZ-C4-MHn"/>
-                                </constraints>
-                            </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AL0-9q-JUq" userLabel="Row2">
-                                <rect key="frame" x="15" y="310.5" width="345" height="80"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RQc-1H-RU4" userLabel="Col1">
-                                        <rect key="frame" x="0.0" y="0.0" width="345" height="80"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% of time spent sleeping" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vlh-i2-gUJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="345" height="40"/>
-                                                <color key="backgroundColor" red="0.71168619389999999" green="0.0" blue="0.158918798" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVu-BA-yOZ" userLabel="percentageSleeping">
-                                                <rect key="frame" x="0.0" y="40" width="345" height="40"/>
-                                                <color key="backgroundColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="Vlh-i2-gUJ" firstAttribute="width" secondItem="dVu-BA-yOZ" secondAttribute="width" id="Eqm-mX-PkF"/>
-                                            <constraint firstItem="Vlh-i2-gUJ" firstAttribute="height" secondItem="dVu-BA-yOZ" secondAttribute="height" id="F5j-bP-cbu"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="RQc-1H-RU4" firstAttribute="centerY" secondItem="AL0-9q-JUq" secondAttribute="centerY" id="741-w1-NQ5"/>
-                                    <constraint firstItem="RQc-1H-RU4" firstAttribute="height" secondItem="AL0-9q-JUq" secondAttribute="height" id="URp-36-wk9"/>
-                                    <constraint firstItem="RQc-1H-RU4" firstAttribute="width" secondItem="AL0-9q-JUq" secondAttribute="width" id="UnT-sI-syF"/>
-                                    <constraint firstItem="RQc-1H-RU4" firstAttribute="centerX" secondItem="AL0-9q-JUq" secondAttribute="centerX" id="xCz-BE-sPw"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTJ-Ou-vqd" userLabel="Row3">
-                                <rect key="frame" x="15" y="410.5" width="345" height="80"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xIt-9D-5Ao" userLabel="Col1">
-                                        <rect key="frame" x="0.0" y="0.0" width="345" height="80"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# of times woken up at night" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMv-Jf-vzb">
-                                                <rect key="frame" x="0.0" y="0.0" width="345" height="40"/>
-                                                <color key="backgroundColor" red="0.71168619389999999" green="0.0" blue="0.158918798" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xlF-aH-lki" userLabel="countWokenUp">
-                                                <rect key="frame" x="0.0" y="40" width="345" height="40"/>
-                                                <color key="backgroundColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="cMv-Jf-vzb" firstAttribute="height" secondItem="xlF-aH-lki" secondAttribute="height" id="HXB-QM-wW0"/>
-                                            <constraint firstItem="cMv-Jf-vzb" firstAttribute="width" secondItem="xlF-aH-lki" secondAttribute="width" id="yw0-W2-Pet"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="xIt-9D-5Ao" firstAttribute="centerY" secondItem="gTJ-Ou-vqd" secondAttribute="centerY" id="RGu-OJ-AQY"/>
-                                    <constraint firstItem="xIt-9D-5Ao" firstAttribute="centerX" secondItem="gTJ-Ou-vqd" secondAttribute="centerX" id="Re6-HL-kou"/>
-                                    <constraint firstItem="xIt-9D-5Ao" firstAttribute="width" secondItem="gTJ-Ou-vqd" secondAttribute="width" id="lCw-pW-fVS"/>
-                                    <constraint firstItem="xIt-9D-5Ao" firstAttribute="height" secondItem="gTJ-Ou-vqd" secondAttribute="height" id="s6e-pt-bJL"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V7L-3h-GhV" userLabel="Row4">
-                                <rect key="frame" x="15" y="510.5" width="345" height="80"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="i97-Cw-wqN" userLabel="Col1">
-                                        <rect key="frame" x="0.0" y="0.0" width="345" height="80"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time taken to fall asleep" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ptm-gZ-AbN">
-                                                <rect key="frame" x="0.0" y="0.0" width="345" height="40"/>
-                                                <color key="backgroundColor" red="0.71168619389999999" green="0.0" blue="0.158918798" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zuQ-hY-BtE" userLabel="timeFallAsleep">
-                                                <rect key="frame" x="0.0" y="40" width="345" height="40"/>
-                                                <color key="backgroundColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="Ptm-gZ-AbN" firstAttribute="height" secondItem="zuQ-hY-BtE" secondAttribute="height" id="WsA-uS-6V2"/>
-                                            <constraint firstItem="Ptm-gZ-AbN" firstAttribute="width" secondItem="zuQ-hY-BtE" secondAttribute="width" id="q6p-W0-Ln4"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="i97-Cw-wqN" firstAttribute="centerY" secondItem="V7L-3h-GhV" secondAttribute="centerY" id="QEj-jB-Nhn"/>
-                                    <constraint firstItem="i97-Cw-wqN" firstAttribute="width" secondItem="V7L-3h-GhV" secondAttribute="width" id="SEt-r9-p5b"/>
-                                    <constraint firstItem="i97-Cw-wqN" firstAttribute="height" secondItem="V7L-3h-GhV" secondAttribute="height" id="XOm-2L-QYE"/>
-                                    <constraint firstItem="i97-Cw-wqN" firstAttribute="centerX" secondItem="V7L-3h-GhV" secondAttribute="centerX" id="gsX-TN-efy"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="p8C-nx-OwB" firstAttribute="width" secondItem="2pl-tQ-BQb" secondAttribute="width" constant="-30" id="1GT-kl-PcG"/>
-                            <constraint firstItem="AL0-9q-JUq" firstAttribute="height" secondItem="ycJ-jZ-whj" secondAttribute="height" id="3pb-WM-pRv"/>
-                            <constraint firstItem="p8C-nx-OwB" firstAttribute="top" secondItem="8gF-UH-7rq" secondAttribute="bottom" constant="8" id="FMO-qY-2lh"/>
-                            <constraint firstItem="V7L-3h-GhV" firstAttribute="width" secondItem="gTJ-Ou-vqd" secondAttribute="width" id="HFk-79-ec0"/>
-                            <constraint firstItem="V7L-3h-GhV" firstAttribute="centerX" secondItem="2pl-tQ-BQb" secondAttribute="centerX" id="JGV-bX-VA6"/>
-                            <constraint firstItem="gTJ-Ou-vqd" firstAttribute="width" secondItem="AL0-9q-JUq" secondAttribute="width" id="JOu-xg-hUa"/>
-                            <constraint firstItem="y5B-0r-waK" firstAttribute="width" secondItem="p8C-nx-OwB" secondAttribute="width" id="Lmt-m4-2Ed"/>
-                            <constraint firstItem="y5B-0r-waK" firstAttribute="centerX" secondItem="2pl-tQ-BQb" secondAttribute="centerX" id="PHE-pC-vee"/>
-                            <constraint firstItem="V7L-3h-GhV" firstAttribute="top" secondItem="gTJ-Ou-vqd" secondAttribute="bottom" constant="20" id="SdG-4N-zOi"/>
-                            <constraint firstItem="aCp-ED-uQR" firstAttribute="top" secondItem="p8C-nx-OwB" secondAttribute="bottom" constant="512" id="Tqk-Hc-ADR"/>
-                            <constraint firstItem="gTJ-Ou-vqd" firstAttribute="centerX" secondItem="2pl-tQ-BQb" secondAttribute="centerX" id="UFA-dl-gGY"/>
-                            <constraint firstItem="V7L-3h-GhV" firstAttribute="height" secondItem="gTJ-Ou-vqd" secondAttribute="height" id="ZEd-cv-Gfm"/>
-                            <constraint firstItem="y5B-0r-waK" firstAttribute="top" secondItem="p8C-nx-OwB" secondAttribute="bottom" constant="40" id="cdY-Hh-ON8"/>
-                            <constraint firstItem="ycJ-jZ-whj" firstAttribute="top" secondItem="y5B-0r-waK" secondAttribute="bottom" constant="25" id="ckf-0g-67q"/>
-                            <constraint firstItem="ycJ-jZ-whj" firstAttribute="width" secondItem="y5B-0r-waK" secondAttribute="width" id="dPI-MM-Cgg"/>
-                            <constraint firstItem="AL0-9q-JUq" firstAttribute="centerX" secondItem="2pl-tQ-BQb" secondAttribute="centerX" id="dRZ-DE-SWJ"/>
-                            <constraint firstItem="AL0-9q-JUq" firstAttribute="width" secondItem="ycJ-jZ-whj" secondAttribute="width" id="esN-nK-v37"/>
-                            <constraint firstItem="p8C-nx-OwB" firstAttribute="centerX" secondItem="2pl-tQ-BQb" secondAttribute="centerX" id="fBZ-a6-TtC"/>
-                            <constraint firstItem="ycJ-jZ-whj" firstAttribute="centerX" secondItem="2pl-tQ-BQb" secondAttribute="centerX" id="hyR-OO-cKR"/>
-                            <constraint firstItem="gTJ-Ou-vqd" firstAttribute="height" secondItem="AL0-9q-JUq" secondAttribute="height" id="lr1-5s-NV6"/>
-                            <constraint firstItem="gTJ-Ou-vqd" firstAttribute="top" secondItem="AL0-9q-JUq" secondAttribute="bottom" constant="20" id="mF0-2h-Qrl"/>
-                            <constraint firstItem="AL0-9q-JUq" firstAttribute="top" secondItem="ycJ-jZ-whj" secondAttribute="bottom" constant="20" id="oYp-GA-rad"/>
+                            <constraint firstItem="w10-3b-ch3" firstAttribute="centerX" secondItem="2pl-tQ-BQb" secondAttribute="centerX" id="4Ay-x1-IEv"/>
+                            <constraint firstItem="Jel-Vt-EYS" firstAttribute="width" secondItem="2pl-tQ-BQb" secondAttribute="width" id="Ahi-KX-hzE"/>
+                            <constraint firstItem="w10-3b-ch3" firstAttribute="centerY" secondItem="2pl-tQ-BQb" secondAttribute="centerY" constant="-70" id="Ck8-Xo-jUc"/>
+                            <constraint firstItem="r2X-9W-fJy" firstAttribute="centerY" secondItem="2pl-tQ-BQb" secondAttribute="centerY" id="Jgm-2I-zG4"/>
+                            <constraint firstItem="Jel-Vt-EYS" firstAttribute="height" secondItem="2pl-tQ-BQb" secondAttribute="height" id="cBp-hO-7mc"/>
+                            <constraint firstItem="r2X-9W-fJy" firstAttribute="centerX" secondItem="2pl-tQ-BQb" secondAttribute="centerX" id="fc3-Ce-QOU"/>
+                            <constraint firstItem="r2X-9W-fJy" firstAttribute="width" secondItem="2pl-tQ-BQb" secondAttribute="width" constant="-20" id="hWX-1N-jy4"/>
+                            <constraint firstItem="Jel-Vt-EYS" firstAttribute="centerX" secondItem="2pl-tQ-BQb" secondAttribute="centerX" id="upK-96-O9G"/>
+                            <constraint firstItem="Jel-Vt-EYS" firstAttribute="centerY" secondItem="2pl-tQ-BQb" secondAttribute="centerY" id="vxI-RR-uIf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SlB-Q0-DVa"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="graphView" destination="p8C-nx-OwB" id="aOe-uQ-BP7"/>
-                        <outlet property="hoursInBed" destination="fbs-CJ-Nhi" id="9P3-tB-UVb"/>
-                        <outlet property="hoursSlept" destination="auY-Yn-NT8" id="vl9-aT-gj9"/>
-                        <outlet property="labelView" destination="y5B-0r-waK" id="ymV-BF-p28"/>
-                        <outlet property="percentageSpentSleeping" destination="dVu-BA-yOZ" id="cqf-1X-91i"/>
-                        <outlet property="timeTakenToSleep" destination="zuQ-hY-BtE" id="rx6-mo-TMr"/>
-                        <outlet property="timesWokenUp" destination="xlF-aH-lki" id="4to-ZF-oca"/>
+                        <outlet property="activityIndicator" destination="w10-3b-ch3" id="iIm-dN-xQF"/>
+                        <outlet property="asleepUnavailableWarning" destination="A8P-uE-wTm" id="gi5-Tx-7Cz"/>
+                        <outlet property="errorView" destination="r2X-9W-fJy" id="1Ie-nC-cEp"/>
+                        <outlet property="graphView" destination="4th-vY-ch6" id="BOj-ei-6hY"/>
+                        <outlet property="hoursInBed" destination="nAz-hj-5tB" id="Jln-Jv-Y6I"/>
+                        <outlet property="hoursSlept" destination="uGm-jG-2UZ" id="wzI-Dq-gYa"/>
+                        <outlet property="labelView" destination="u0g-K9-Pha" id="bHi-a2-eUp"/>
+                        <outlet property="mainView" destination="Jel-Vt-EYS" id="lhS-er-Bn4"/>
+                        <outlet property="percentageSpentSleeping" destination="gxu-vz-KCE" id="fS2-QL-Mqe"/>
+                        <outlet property="timeTakenToSleep" destination="an9-za-lgD" id="bq9-eI-3qR"/>
+                        <outlet property="timesWokenUp" destination="gSL-O1-KpS" id="WfJ-qK-wnW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EWB-Mp-iVC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1460,6 +1562,14 @@
             </objects>
             <point key="canvasLocation" x="1134" y="1585"/>
         </scene>
+        <!--firstTime-->
+        <scene sceneID="hkY-LW-axg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="firstTime" id="A3c-Z5-gRC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HfJ-27-i4N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-306" y="-570"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
@@ -2114,6 +2224,7 @@
         <image name="button" width="103" height="40"/>
         <image name="cardio" width="30" height="30"/>
         <image name="circularButton" width="150" height="150"/>
+        <image name="error icon" width="128" height="128"/>
         <image name="popover" width="147" height="224"/>
         <image name="strength" width="30" height="30"/>
     </resources>

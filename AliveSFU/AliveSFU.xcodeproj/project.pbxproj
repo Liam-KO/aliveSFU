@@ -35,6 +35,7 @@
 		A9AE2C4B1DC1824C00FB5BC0 /* SleepAnalysisController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AE2C4A1DC1824C00FB5BC0 /* SleepAnalysisController.swift */; };
 		A9DD17601DC9682F00979495 /* AppData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9DD175E1DC9682F00979495 /* AppData.xcdatamodeld */; };
 		A9DD17621DC968F300979495 /* AppDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DD17611DC968F300979495 /* AppDataController.swift */; };
+		A9FCD5E81DDF19CF00A75BCC /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9FCD5E71DDF19CF00A75BCC /* HealthKit.framework */; };
 		C699DB8C1DCDD7E50088CAEE /* JBChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C699DB831DCDD7E50088CAEE /* JBChart.framework */; };
 		C699DB931DCDD7E50088CAEE /* JBChartTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C699DB921DCDD7E50088CAEE /* JBChartTests.m */; };
 		C699DB951DCDD7E50088CAEE /* JBChart.h in Headers */ = {isa = PBXBuildFile; fileRef = C699DB851DCDD7E50088CAEE /* JBChart.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -136,6 +137,8 @@
 		A9AE2C4A1DC1824C00FB5BC0 /* SleepAnalysisController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepAnalysisController.swift; sourceTree = "<group>"; };
 		A9DD175F1DC9682F00979495 /* AppData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppData.xcdatamodel; sourceTree = "<group>"; };
 		A9DD17611DC968F300979495 /* AppDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDataController.swift; sourceTree = "<group>"; };
+		A9FCD5E51DDF19CF00A75BCC /* AliveSFU.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AliveSFU.entitlements; sourceTree = "<group>"; };
+		A9FCD5E71DDF19CF00A75BCC /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		C699DB831DCDD7E50088CAEE /* JBChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JBChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C699DB851DCDD7E50088CAEE /* JBChart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBChart.h; sourceTree = "<group>"; };
 		C699DB861DCDD7E50088CAEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -157,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C699DB981DCDD7E50088CAEE /* JBChart.framework in Frameworks */,
+				A9FCD5E81DDF19CF00A75BCC /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +261,7 @@
 				C699DB841DCDD7E50088CAEE /* JBChart */,
 				C699DB911DCDD7E50088CAEE /* JBChartTests */,
 				A9AE2C141DC17F9900FB5BC0 /* Products */,
+				A9FCD5E61DDF19CF00A75BCC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -275,6 +280,7 @@
 		A9AE2C151DC17F9900FB5BC0 /* AliveSFU */ = {
 			isa = PBXGroup;
 			children = (
+				A9FCD5E51DDF19CF00A75BCC /* AliveSFU.entitlements */,
 				A9AE2C1F1DC17F9900FB5BC0 /* Assets.xcassets */,
 				A92A2C171DD7D5BA00E0B679 /* Top Level View Controllers */,
 				A92A2C161DD7D42D00E0B679 /* MyProgress */,
@@ -307,6 +313,14 @@
 				A9AE2C3A1DC17F9900FB5BC0 /* Info.plist */,
 			);
 			path = AliveSFUUITests;
+			sourceTree = "<group>";
+		};
+		A9FCD5E61DDF19CF00A75BCC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A9FCD5E71DDF19CF00A75BCC /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C699DB841DCDD7E50088CAEE /* JBChart */ = {
@@ -465,6 +479,11 @@
 						DevelopmentTeam = 3TTPMU2CZK;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 					A9AE2C281DC17F9900FB5BC0 = {
 						CreatedOnToolsVersion = 8.0;
@@ -764,6 +783,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = AliveSFU/AliveSFU.entitlements;
 				DEVELOPMENT_TEAM = 3TTPMU2CZK;
 				INFOPLIST_FILE = AliveSFU/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -780,6 +800,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = AliveSFU/AliveSFU.entitlements;
 				DEVELOPMENT_TEAM = 3TTPMU2CZK;
 				INFOPLIST_FILE = AliveSFU/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

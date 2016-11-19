@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HealthKit
 
 class SubpageViewController: UIViewController, UITextFieldDelegate {
     
@@ -227,6 +228,12 @@ class Subpage3ViewController: SubpageViewController {
                 button.isSelected = true
                 if (button.tag == ENABLE_BUTTON_TAG) {
                     // Enable sleep analysis in the temp variable
+                    let healthStore = HKHealthStore()
+                    healthStore.requestAuthorization(toShare: nil, read: [HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis)!], completion: { (success, error) -> Void in
+                        if success == false {
+                            // User denied permission
+                        }
+                    })
                     
                 } else if (button.tag == DISABLE_BUTTON_TAG) {
                     // Disable sleep analysis in the temp variable

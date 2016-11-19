@@ -796,6 +796,7 @@
                                         <connections>
                                             <action selector="finishBtnAction:" destination="37G-Ym-g7N" eventType="touchUpInside" id="r24-I1-W4B"/>
                                             <action selector="nextButton:" destination="ASX-Vp-UJ2" eventType="touchUpInside" id="AKo-Im-T41"/>
+                                            <segue destination="pU6-hY-rZw" kind="show" id="v5E-9S-pCb"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -833,6 +834,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pPV-Ea-Z6E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="604" y="1553.9730134932536"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="RDz-lP-UDL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="pU6-hY-rZw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2jD-RK-iH1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="585" y="1990"/>
         </scene>
     </scenes>
     <resources>
