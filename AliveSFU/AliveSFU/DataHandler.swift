@@ -12,6 +12,48 @@ import CoreData
 
 class DataHandler {
     
+    class func initFlagsAndPersonalData() {
+        let moc = AppDataController().managedObjectContext
+        
+        // To make sure we have only one user details
+        let details = NSFetchRequest<NSFetchRequestResult>(entityName: "UserDetails")
+        details.predicate = NSPredicate(format: "primaryKey = 1")
+        
+        do {
+            let fetchedResult = try moc.fetch(details) as! [NSManagedObject]
+            if (fetchedResult.count == 0) {
+                let mo = NSEntityDescription.insertNewObject(forEntityName: "UserDetails", into: moc)
+                mo.setValue("1", forKey: "primaryKey")
+            }
+        } catch {
+            print("Error setting details")
+        }
+        
+        // To make sure we only have one flag entity
+        let flag = NSFetchRequest<NSFetchRequestResult>(entityName: "Flags")
+        flag.predicate = NSPredicate(format: "primaryKey = 1")
+        
+        do {
+            let fetchedResult = try moc.fetch(flag) as! [NSManagedObject]
+            if (fetchedResult.count == 0) {
+                let mo = NSEntityDescription.insertNewObject(forEntityName: "Flags", into: moc)
+                mo.setValue("1", forKey: "primaryKey")
+                mo.setValue(false, forKey: "enableFitnessBuddy")
+                mo.setValue(false, forKey: "enableSleep")
+                mo.setValue(false, forKey: "profileExists")
+                mo.setValue(false, forKey: "userLoggedIn")
+            }
+        } catch {
+            print("Error setting flags")
+        }
+        
+        do {
+            try moc.save()
+        } catch let error as NSError {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
+    
     class func getExerciseArrayCount() -> Int{
         let moc = AppDataController().managedObjectContext
         let entityFetchReq = NSFetchRequest<NSFetchRequestResult>(entityName: "Exercise")
@@ -223,5 +265,100 @@ class DataHandler {
             }
         }
         return dayArray
+    }
+    
+    class func saveProfile(pd: PersonalDetails, fd: FitnessDetails, enableSleep: Bool, enableFitnessBuddy: Bool) -> Int {
+        
+        let moc = AppDataController().managedObjectContext
+        
+        // To make sure we have only one user details
+        let details = NSFetchRequest<NSFetchRequestResult>(entityName: "UserDetails")
+        details.predicate = NSPredicate(format: "primaryKey = 1")
+        
+        do {
+            var fetchedResult = try moc.fetch(details) as! [NSManagedObject]
+            let mo = fetchedResult[0]
+            
+            mo.setValue(pd.firstName, forKey: "firstName")
+            mo.setValue(pd.lastName, forKey: "lastName")
+            mo.setValue(pd.phoneNumber, forKey: "phoneNumber")
+            mo.setValue(pd.gender, forKey: "gender")
+            mo.setValue(pd.email, forKey: "email")
+            
+            mo.setValue(fd.ageGroup, forKey: "ageGroup")
+            mo.setValue(fd.fitnessFreq, forKey: "frequency")
+            mo.setValue(fd.heightFeet, forKey: "heightFeet")
+            mo.setValue(fd.heightInches, forKey: "heightInches")
+            mo.setValue(fd.personalGoals, forKey: "personalGoals")
+            mo.setValue(fd.weight, forKey: "weight")
+        } catch {
+            print("Error setting details")
+        }
+        
+        // To make sure we only have one flag entity
+        let flag = NSFetchRequest<NSFetchRequestResult>(entityName: "Flags")
+        flag.predicate = NSPredicate(format: "primaryKey = 1")
+        
+        do {
+            var fetchedResult = try moc.fetch(flag) as! [NSManagedObject]
+            let mo = fetchedResult[0]
+            
+            mo.setValue(enableSleep, forKey: "enableSleep")
+            mo.setValue(enableFitnessBuddy, forKey: "enableFitnessBuddy")
+            mo.setValue(true, forKey: "profileExists")
+        } catch {
+            print("Error setting flags")
+        }
+        
+        do {
+            try moc.save()
+        } catch let error as NSError {
+            print("Could not save \(error), \(error.userInfo)")
+            return -1
+        }
+        return 0;
+    }
+
+    class func getFlags() -> Flags {
+        let moc = AppDataController().managedObjectContext
+        
+        let flag = NSFetchRequest<NSFetchRequestResult>(entityName: "Flags")
+        flag.predicate = NSPredicate(format: "primaryKey = 1")
+        do {
+            let fetchedResults = try moc.fetch(flag) as! [NSManagedObject]
+            for result in fetchedResults {
+                let enableFitnessBuddy = result.value(forKey: "enableFitnessBuddy") as? Bool
+                let enableSleep = result.value(forKey: "enableSleep") as? Bool
+                let profileExists = result.value(forKey: "profileExists") as? Bool
+                let isUserLoggedIn = result.value(forKey: "userLoggedIn") as? Bool
+                
+                return Flags(isDataValid: true, profileExists: profileExists, isUserLoggedIn: isUserLoggedIn, enableFitnessBuddy: enableFitnessBuddy, enableSleepAnalysis: enableSleep)
+            }
+        } catch {
+            fatalError("Failed to fetch array! Error: \(error)")
+        }
+        
+        return Flags.InvalidData
+    }
+    
+    class func setUserLoggedIn(isLoggedIn: Bool) {
+        let moc = AppDataController().managedObjectContext
+        
+        let flag = NSFetchRequest<NSFetchRequestResult>(entityName: "Flags")
+        flag.predicate = NSPredicate(format: "primaryKey = 1")
+        do {
+            let fetchedResults = try moc.fetch(flag) as! [NSManagedObject]
+            let mo = fetchedResults[0]
+            
+            mo.setValue(isLoggedIn, forKey: "userLoggedIn")
+        } catch {
+            fatalError("Failed to fetch array! Error: \(error)")
+        }
+        do {
+            try moc.save()
+        } catch let error as NSError {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+
     }
 }

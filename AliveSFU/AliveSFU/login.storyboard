@@ -44,7 +44,6 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="login:" destination="3Es-oy-JsM" eventType="touchUpInside" id="Mf6-QD-pip"/>
                                     <segue destination="9w5-Sk-Vju" kind="popoverPresentation" popoverAnchorView="K3K-Lr-PqU" id="y8v-ve-Lai">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
@@ -103,7 +102,7 @@
                                         <rect key="frame" x="84.5" y="158" width="205" height="40"/>
                                         <state key="normal" title="Log Me In!" backgroundImage="button"/>
                                         <connections>
-                                            <segue destination="cmo-d1-t2C" kind="show" id="GUa-dH-D8H"/>
+                                            <action selector="loginSuccessful:" destination="9w5-Sk-Vju" eventType="touchUpInside" id="xfU-Ch-Kk8"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -149,14 +148,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N3p-tX-Sho" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="660" y="-728"/>
-        </scene>
-        <!--firstTime-->
-        <scene sceneID="WgV-7d-hmb">
-            <objects>
-                <viewControllerPlaceholder storyboardName="firstTime" id="cmo-d1-t2C" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aUN-24-yqe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1390" y="-729"/>
         </scene>
     </scenes>
     <resources>

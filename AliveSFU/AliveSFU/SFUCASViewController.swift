@@ -37,4 +37,32 @@ class SFUCASViewController: UIViewController {
         
     }
     
+    @IBAction func loginSuccessful(_ sender: UIButton) {
+        DataHandler.setUserLoggedIn(isLoggedIn: true)
+        
+        let flags = DataHandler.getFlags()
+        
+        if let userProfileExists = flags.profileExists {
+            if (userProfileExists) {
+                
+                //User profile exists, take user to main storyboard (Home page)
+                let sb = UIStoryboard(name: "Main", bundle: nil)
+                let vc = sb.instantiateInitialViewController()!
+                vc.modalPresentationStyle = .fullScreen
+                vc.modalTransitionStyle = .crossDissolve
+                
+                self.present(vc, animated: true, completion: nil)
+            } else {
+                
+                //User profile doesn't exist. Take user to first time login
+                let sb = UIStoryboard(name: "firstTime", bundle: nil)
+                let vc = sb.instantiateInitialViewController()!
+                vc.modalPresentationStyle = .fullScreen
+                vc.modalTransitionStyle = .crossDissolve
+                
+                self.present(vc, animated: true, completion: nil)
+            }
+        }
+    }
+    
 }

@@ -1,8 +1,10 @@
+
 //
 //  SleepAnalysisController.swift
 //  AliveSFU
 //
 //  Created by Gur Kohli on 2016-10-26.
+//  Developers: Vivek Sharma
 //  Copyright © 2016 SimonDevs. All rights reserved.
 //
 
@@ -10,8 +12,12 @@ import UIKit
 import JBChart
 import HealthKit
 
-class SleepAnalysisController: UIViewController {
+class SleepAnalysisController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDataSource {
     
+    
+    //@IBOutlet weak var infoLabel: UILabel! //this label would be used to display hours of the bar that is touched
+
+    @IBOutlet weak var barChart: JBBarChartView!
     @IBOutlet weak var hoursInBed: UILabel!
     @IBOutlet weak var hoursSlept: UILabel!
     @IBOutlet weak var percentageSpentSleeping: UILabel!
@@ -25,8 +31,24 @@ class SleepAnalysisController: UIViewController {
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var errorView: UIView!
     
+    
+    /* Variables */
+    
     var isDataLoaded = false
+    var currDay : DaysInAWeek = DaysInAWeek.Sunday
+    var panTileOrigin = CGPoint(x: 0, y: 0)
+    var chartLegend = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"] //x-axis information
+    /************************************************************************************************************************************************************************/
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////COMMENT THIS OUT AND INSERT ARRAY HOLDING ACTUAL SLEEP DATA////////////////////////////////////////////
+    var chartData = [5, 8, 6, 2, 9, 6, 4]
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /************************************************************************************************************************************************************************/
 
+    let SFURed = UIColor(red: 166, green: 25, blue: 46)
+    let SFUGrey = UIColor(red: 84, green: 88, blue: 90)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -35,7 +57,15 @@ class SleepAnalysisController: UIViewController {
         graphView.layer.borderColor = borderColor
         labelView.layer.borderColor = borderColor
         errorView.layer.borderColor = borderColor
-
+        setupBarChart()
+        barChartView(barChart, didSelectBarAt: UInt(currDay.index - 1))
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        barChart.reloadData()
+        _ = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(MyProgressController.showChart), userInfo: nil, repeats: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,12 +82,77 @@ class SleepAnalysisController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
+    func setupBarChart()
+    {
+        barChart.backgroundColor = UIColor.white
+        barChart.delegate = self
+        barChart.dataSource = self
+        barChart.minimumValue = 0
+        barChart.maximumValue = CGFloat(chartData.max()!) //Max value of a bar in the graph is the max value from the data array.
+        //The height of each bar is relative to this value
+        
+        //NOTE: footer and header created below reduce size/space of the actual bar graph.
+        
+        //Creating a footer with appropriate Day labels. Spacing is hard coded unfortunately
+        let footer = UILabel(frame: CGRect(x: 0, y: 0, width: barChart.frame.width, height: 16))
+        footer.textColor = UIColor.black
+        footer.text = " \(chartLegend[0])     \(chartLegend[1])      \(chartLegend[2])     \(chartLegend[3])     \(chartLegend[4])     \(chartLegend[5])       \(chartLegend[6])"
+        footer.textAlignment = NSTextAlignment.left
+        
+        //Creating a header.
+        let header = UILabel(frame: CGRect(x: 0, y: 0, width: barChart.frame.width, height: 16))
+        header.textColor = UIColor.black
+        header.text = "Sleep History"
+        header.textAlignment = NSTextAlignment.center
+        
+        barChart.footerView = footer
+        barChart.headerView = header
+        barChart.reloadData()
+        barChart.setState(.collapsed, animated: false)
+    }
+    
+    func hideChart() {
+        barChart.setState(.collapsed, animated: true)
+    }
+    
+    func showChart() {
+        barChart.setState(.expanded, animated: true)
+    }
+    
+    
+    func numberOfBars(in barChartView: JBBarChartView!) -> UInt {
+        return UInt(chartData.count)
+    }
+    
+    func barChartView(_ barChartView: JBBarChartView!, heightForBarViewAt index: UInt) -> CGFloat {
+        return CGFloat(chartData[Int(index)])
+    }
+    
+    func barChartView(_ barChartView: JBBarChartView!, colorForBarViewAt index: UInt) -> UIColor! {
+        return SFURed
+        
+    }
+    
+    func barChartView(_ barChartView: JBBarChartView!, didSelectBarAt index: UInt) {
+        let data = chartData[Int(index)]
+        let key = chartLegend[Int(index)]
+        
+        //Uncomment below if implementing a label to display hours slept when a bar is touched
+        //infoLabel.text = "Workouts completed on \(key): \(data)"
+        //Maybe change the bar graphs to a percentage, so that if all workouts are completed on that day, the bar is a maximum height.
+    }
+    func updateChartData() {
+        chartData = DataHandler.countCompletion()
+        barChart.reloadData()
+    }
+    
     
     func retrieveSleepAnalysis() {
         let date = Date()
@@ -88,7 +183,7 @@ class SleepAnalysisController: UIViewController {
                     if let result = tmpResult {
                         
                         if result.count > 0 {
-                        // do something with my data
+                            // do something with my data
                             var maxEndDateBed = date
                             var minStartDateBed = date
                             if let firstSample = result.first as? HKCategorySample {
@@ -164,6 +259,6 @@ class SleepAnalysisController: UIViewController {
             healthStore.execute(query)
         }
     }
-
+    
 }
 
