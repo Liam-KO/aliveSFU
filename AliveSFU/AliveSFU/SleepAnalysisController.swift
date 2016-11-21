@@ -38,13 +38,7 @@ class SleepAnalysisController: UIViewController, JBBarChartViewDelegate, JBBarCh
     var currDay : DaysInAWeek = DaysInAWeek.Sunday
     var panTileOrigin = CGPoint(x: 0, y: 0)
     var chartLegend = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"] //x-axis information
-    /************************************************************************************************************************************************************************/
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////COMMENT THIS OUT AND INSERT ARRAY HOLDING ACTUAL SLEEP DATA////////////////////////////////////////////
-    var chartData = [5, 8, 6, 2, 9, 6, 4]
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /************************************************************************************************************************************************************************/
+    var chartData = DataHandler.getSleepAnalysisData()
 
     let SFURed = UIColor(red: 166, green: 25, blue: 46)
     let SFUGrey = UIColor(red: 84, green: 88, blue: 90)
@@ -149,7 +143,7 @@ class SleepAnalysisController: UIViewController, JBBarChartViewDelegate, JBBarCh
         //Maybe change the bar graphs to a percentage, so that if all workouts are completed on that day, the bar is a maximum height.
     }
     func updateChartData() {
-        chartData = DataHandler.countCompletion()
+        chartData = DataHandler.getSleepAnalysisData()
         barChart.reloadData()
     }
     
@@ -160,6 +154,9 @@ class SleepAnalysisController: UIViewController, JBBarChartViewDelegate, JBBarCh
         formattedDate.timeStyle = .none
         formattedDate.dateStyle = .long
         let dateString = formattedDate.string(from: date)
+        let calendar = Calendar(identifier: .gregorian)
+        let components = calendar.component(.day, from: date)
+        let dayOfWeek = components
         
         let healthStore = HKHealthStore()
         
@@ -201,7 +198,7 @@ class SleepAnalysisController: UIViewController, JBBarChartViewDelegate, JBBarCh
                             for item in result {
                                 if let sample = item as? HKCategorySample {
                                     let endDate = formattedDate.string(from: sample.endDate)
-                                    if (endDate == dateString && sample.value == HKCategoryValueSleepAnalysis.inBed.rawValue) {
+                                    if (endDate == dateString) {
                                         
                                         minStartDateBed = minStartDateBed.compare(sample.startDate) == ComparisonResult.orderedDescending ? sample.startDate : minStartDateBed
                                         
@@ -229,17 +226,22 @@ class SleepAnalysisController: UIViewController, JBBarChartViewDelegate, JBBarCh
                             let totalHoursAsleep = maxEndDateAsleep.timeIntervalSince(minStartDateAsleep) / 3600
                             let percentageOfTimeSlept = (totalHoursAsleep / totalHoursInBed) * 100
                             let noOfTimesWokenUp = noOfValidSamples
-                            let timeTakenToFallAsleep = minStartDateAsleep.timeIntervalSince(minStartDateBed) / 3600
+                            let timeTakenToFallAsleep = minStartDateAsleep.timeIntervalSince(minStartDateBed) / 60
                             
                             if (!isAsleepDataAvailable) {
                                 // Asleep data not available. Let user know
                                 self.asleepUnavailableWarning.isHidden = false
                             }
-                            self.hoursInBed.text = String(totalHoursInBed)
-                            self.hoursSlept.text = String(totalHoursAsleep)
-                            self.percentageSpentSleeping.text = String(percentageOfTimeSlept)
-                            self.timeTakenToSleep.text = String(timeTakenToFallAsleep)
+                            
+                            self.hoursInBed.text = String(format: "%.1f", totalHoursInBed)
+                            self.hoursSlept.text = String(format: "%.1f", totalHoursAsleep)
+                            self.percentageSpentSleeping.text = String(format: "%.1f",percentageOfTimeSlept) + "%"
+                            self.timeTakenToSleep.text = String(format: "%.1f", timeTakenToFallAsleep) + " min"
                             self.timesWokenUp.text = String(noOfTimesWokenUp)
+                            
+                            // Saving total hours slept for graph
+                            DataHandler.setSleepAnalysisDataForDay(day: dayOfWeek, value: totalHoursAsleep)
+                            self.updateChartData()
                             
                             self.view.layoutSubviews()
                             self.activityIndicator.stopAnimating()

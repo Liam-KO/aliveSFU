@@ -340,13 +340,14 @@ class Subpage2ViewController: SubpageViewController {
             }
         }
         
-        var goals = -1
+        var goalArr: [String] = []
         for (index, btn) in personalGoals.enumerated() {
             if (btn.isSelected) {
-                goals = index
-                break
+                goalArr.append(String(index))
             }
         }
+        let goals = goalArr.joined(separator: ",")
+        
         let fd = FitnessDetails(heightFeet: heightFeet, heightInches: heightInches, weight: weight, ageGroup: age, fitnessFreq: fitnessFreq, personalGoals: goals)
         
         return fd

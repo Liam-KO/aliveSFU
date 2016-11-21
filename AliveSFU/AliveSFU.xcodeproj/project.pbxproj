@@ -27,6 +27,7 @@
 		A9A729D01DE14D6C0085D399 /* AppData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9A729CE1DE14D6C0085D399 /* AppData.xcdatamodeld */; };
 		A9A729D21DE14EAD0085D399 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A729D11DE14EAD0085D399 /* UserProfile.swift */; };
 		A9A729D41DE169E70085D399 /* Flags.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A729D31DE169E70085D399 /* Flags.swift */; };
+		A9A729D61DE269E00085D399 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A729D51DE269E00085D399 /* MyProfileViewController.swift */; };
 		A9AE2C171DC17F9900FB5BC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AE2C161DC17F9900FB5BC0 /* AppDelegate.swift */; };
 		A9AE2C191DC17F9900FB5BC0 /* HomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AE2C181DC17F9900FB5BC0 /* HomePageController.swift */; };
 		A9AE2C1B1DC17F9900FB5BC0 /* SFURecreationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AE2C1A1DC17F9900FB5BC0 /* SFURecreationController.swift */; };
@@ -126,6 +127,7 @@
 		A9A729CF1DE14D6C0085D399 /* AppData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppData.xcdatamodel; sourceTree = "<group>"; };
 		A9A729D11DE14EAD0085D399 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		A9A729D31DE169E70085D399 /* Flags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flags.swift; sourceTree = "<group>"; };
+		A9A729D51DE269E00085D399 /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		A9AE2C131DC17F9900FB5BC0 /* AliveSFU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AliveSFU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9AE2C161DC17F9900FB5BC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9AE2C181DC17F9900FB5BC0 /* HomePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageController.swift; sourceTree = "<group>"; };
@@ -260,6 +262,14 @@
 			name = "Data Handler";
 			sourceTree = "<group>";
 		};
+		A9A729D71DE26A410085D399 /* Home Page */ = {
+			isa = PBXGroup;
+			children = (
+				A9A729D51DE269E00085D399 /* MyProfileViewController.swift */,
+			);
+			name = "Home Page";
+			sourceTree = "<group>";
+		};
 		A9AE2C0A1DC17F9900FB5BC0 = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +306,7 @@
 				A92A2C2C1DDA9B8E00E0B679 /* Data Handler */,
 				A92A2C211DDA857900E0B679 /* First Time View Controllers */,
 				A92A2C1C1DD7E19C00E0B679 /* Login */,
+				A9A729D71DE26A410085D399 /* Home Page */,
 				A9AE2C211DC17F9900FB5BC0 /* LaunchScreen.storyboard */,
 				A98570601DC2E7FF00C3AA32 /* Main.storyboard */,
 				A92A2C1F1DDA826900E0B679 /* firstTime.storyboard */,
@@ -593,6 +604,7 @@
 				A9AE2C4B1DC1824C00FB5BC0 /* SleepAnalysisController.swift in Sources */,
 				A9AE2C1B1DC17F9900FB5BC0 /* SFURecreationController.swift in Sources */,
 				A9AE2C171DC17F9900FB5BC0 /* AppDelegate.swift in Sources */,
+				A9A729D61DE269E00085D399 /* MyProfileViewController.swift in Sources */,
 				A9AE2C471DC1822D00FB5BC0 /* MyProgressController.swift in Sources */,
 				A98570641DC315B100C3AA32 /* AddStrengthExercise.swift in Sources */,
 				FA7FB3171DC333BD00781EFB /* PopoverStrengthTile.swift in Sources */,
