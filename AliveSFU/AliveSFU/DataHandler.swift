@@ -423,6 +423,7 @@ class DataHandler {
     }
     
     class func getSleepAnalysisData() -> [Double] {
+        
         var result: [Double] = [0, 0, 0, 0, 0, 0, 0]
         
         let moc = AppDataController().managedObjectContext
@@ -432,7 +433,7 @@ class DataHandler {
         do {
             let fetchedResults = try moc.fetch(sa) as! [NSManagedObject]
             let mo = fetchedResults[0]
-            
+
             result[0] = mo.value(forKey: "sunday") as! Double
             result[1] = mo.value(forKey: "monday") as! Double
             result[2] = mo.value(forKey: "tuesday") as! Double
@@ -440,10 +441,13 @@ class DataHandler {
             result[4] = mo.value(forKey: "thursday") as! Double
             result[5] = mo.value(forKey: "friday") as! Double
             result[6] = mo.value(forKey: "saturday") as! Double
+           // result = [1,2,3,4,2,1,6] //uncomment for testing purposes
             
         } catch {
             fatalError("Failed to fetch array! Error: \(error)")
         }
+
+        
         return result
     }
     

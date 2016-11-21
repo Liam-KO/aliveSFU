@@ -45,7 +45,6 @@ class SleepAnalysisController: UIViewController, JBBarChartViewDelegate, JBBarCh
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         let borderColor = UIColor.init(red: 238, green: 238, blue: 238).cgColor
         graphView.layer.borderColor = borderColor
@@ -144,6 +143,17 @@ class SleepAnalysisController: UIViewController, JBBarChartViewDelegate, JBBarCh
     }
     func updateChartData() {
         chartData = DataHandler.getSleepAnalysisData()
+        
+        /*******Makes sure the bars for future days in the week are not displayed****/
+        let calendar = NSCalendar.current
+        var comps = calendar.dateComponents([.weekday], from: Date())
+        print(comps.weekday!)
+        if(comps.weekday! != 7){
+            for index in (comps.weekday!+1)...7{
+                chartData[index-1] = 0
+            }
+        }
+        
         barChart.reloadData()
     }
     
@@ -155,7 +165,7 @@ class SleepAnalysisController: UIViewController, JBBarChartViewDelegate, JBBarCh
         formattedDate.dateStyle = .long
         let dateString = formattedDate.string(from: date)
         let calendar = Calendar(identifier: .gregorian)
-        let components = calendar.component(.day, from: date)
+        let components = calendar.component(.weekday, from: date)
         let dayOfWeek = components
         
         let healthStore = HKHealthStore()

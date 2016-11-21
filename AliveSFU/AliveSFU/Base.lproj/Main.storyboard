@@ -444,7 +444,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ut-pN-shk" userLabel="Back">
-                                <rect key="frame" x="52.5" y="538" width="70" height="70"/>
+                                <rect key="frame" x="53" y="538" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="1Ny-Ah-nyh"/>
                                     <constraint firstAttribute="width" secondItem="6ut-pN-shk" secondAttribute="height" multiplier="1:1" id="kEj-LZ-lpM"/>
@@ -458,7 +458,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2Z-9Q-vPb" userLabel="Next">
-                                <rect key="frame" x="252.5" y="538" width="70" height="70"/>
+                                <rect key="frame" x="253" y="538" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Y2Z-9Q-vPb" secondAttribute="height" multiplier="1:1" id="2hf-iR-bSw"/>
                                     <constraint firstAttribute="width" constant="70" id="mQ6-28-420"/>
@@ -560,7 +560,6 @@
                                 <state key="normal" title="MyProfile" backgroundImage="circularButton"/>
                                 <state key="selected" backgroundImage="circularButton"/>
                                 <connections>
-                                    <action selector="openMyProfile:" destination="9pv-A4-QxB" eventType="touchUpInside" id="UdV-mY-t8M"/>
                                     <segue destination="1H8-ky-Ifz" kind="show" id="cgu-SC-zr8"/>
                                 </connections>
                             </button>
@@ -762,7 +761,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="7iR-Hg-k8g"/>
                     <connections>
-                        <outlet property="calorieBurned" destination="eKM-IX-4a7" id="9px-tR-2jG"/>
+                        <outlet property="bmiCount" destination="vEu-Xc-Wkh" id="OrH-6j-xvr"/>
+                        <outlet property="bmrCount" destination="eKM-IX-4a7" id="M3C-Xq-xGv"/>
                         <outlet property="stepCount" destination="oOv-Dl-eGs" id="pUd-hh-KYF"/>
                         <outlet property="todaySleep" destination="24Y-2I-iJu" id="Sf0-TX-Tvg"/>
                     </connections>
@@ -949,7 +949,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u0g-K9-Pha">
-                                        <rect key="frame" x="14.5" y="126" width="345" height="40"/>
+                                        <rect key="frame" x="15" y="126" width="345" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sleep Analysis for last night" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I23-0H-1pv">
                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="40"/>
@@ -1066,7 +1066,7 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wNx-NH-ieD" userLabel="Row2">
-                                        <rect key="frame" x="15" y="290.5" width="345" height="80"/>
+                                        <rect key="frame" x="15" y="291" width="345" height="80"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Q0p-df-0O8" userLabel="Col1">
                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="80"/>
@@ -1118,7 +1118,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pg0-kS-sIn" userLabel="Row3">
-                                        <rect key="frame" x="15" y="390.5" width="345" height="80"/>
+                                        <rect key="frame" x="15" y="391" width="345" height="80"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kGg-9u-gVa" userLabel="Col1">
                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="80"/>
@@ -1170,7 +1170,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXL-Tf-rLR" userLabel="Row4">
-                                        <rect key="frame" x="15" y="490.5" width="345" height="80"/>
+                                        <rect key="frame" x="15" y="491" width="345" height="80"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="V2e-et-Mbn" userLabel="Col1">
                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="80"/>
@@ -1222,7 +1222,7 @@
                                         </constraints>
                                     </view>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unable to gather &quot;Asleep&quot; data from HealthKit. Using &quot;On Bed&quot; data as estimate" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8P-uE-wTm" userLabel="AsleepUnavailable">
-                                        <rect key="frame" x="14.5" y="585.5" width="345" height="28"/>
+                                        <rect key="frame" x="15" y="586" width="345" height="28"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                         <color key="textColor" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1257,7 +1257,7 @@
                                 </constraints>
                             </view>
                             <activityIndicatorView opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="w10-3b-ch3">
-                                <rect key="frame" x="163" y="238.5" width="50" height="50"/>
+                                <rect key="frame" x="163" y="239" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="w10-3b-ch3" secondAttribute="height" multiplier="1:1" id="MLM-Lq-yeP"/>
                                     <constraint firstAttribute="width" constant="50" id="aLv-q3-eT3"/>
@@ -1265,10 +1265,10 @@
                                 <color key="color" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r2X-9W-fJy" userLabel="Error View">
-                                <rect key="frame" x="9.5" y="173" width="355" height="320"/>
+                                <rect key="frame" x="10" y="173" width="355" height="320"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error icon" translatesAutoresizingMaskIntoConstraints="NO" id="j5U-MA-OUY">
-                                        <rect key="frame" x="152.5" y="10" width="50" height="50"/>
+                                        <rect key="frame" x="152" y="10" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="j5U-MA-OUY" secondAttribute="height" multiplier="1:1" id="CRL-qD-0dB"/>
                                             <constraint firstAttribute="width" constant="50" id="lho-kS-Uc3"/>
@@ -1520,7 +1520,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aeG-eG-2NP" userLabel="editableRows">
-                                        <rect key="frame" x="10" y="128.5" width="235" height="110"/>
+                                        <rect key="frame" x="10" y="129" width="235" height="110"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lzk-bv-nn5" userLabel="col3">
                                                 <rect key="frame" x="0.0" y="0.0" width="235" height="30"/>
@@ -1600,7 +1600,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zpo-gM-qnI" userLabel="changeExercise">
-                                        <rect key="frame" x="37.5" y="252" width="180" height="40"/>
+                                        <rect key="frame" x="38" y="252" width="180" height="40"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
                                         <state key="normal" title="Change Exercise" backgroundImage="button">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1610,7 +1610,7 @@
                                         </connections>
                                     </button>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PYZ-lE-nOB" userLabel="editableButtons">
-                                        <rect key="frame" x="37.5" y="252" width="180" height="40"/>
+                                        <rect key="frame" x="38" y="252" width="180" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nA3-mZ-g71" userLabel="cancelExercise">
                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="40"/>
@@ -1638,7 +1638,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dud-yv-c1e" userLabel="deleteExercise">
-                                        <rect key="frame" x="37.5" y="302" width="180" height="40"/>
+                                        <rect key="frame" x="38" y="302" width="180" height="40"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
                                         <size key="titleShadowOffset" width="0.0" height="1"/>
                                         <state key="normal" title="Delete Exercise" backgroundImage="button">
@@ -1757,10 +1757,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e2q-4C-r88" userLabel="Add Exercise">
-                                <rect key="frame" x="16.5" y="72" width="343" height="64"/>
+                                <rect key="frame" x="16" y="72" width="343" height="64"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Exercise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOz-YI-f1c">
-                                        <rect key="frame" x="39" y="6" width="265.5" height="52"/>
+                                        <rect key="frame" x="38" y="6" width="266" height="52"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="45"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="highlightedColor" red="0.98422783613204956" green="0.98436874151229858" blue="0.98419696092605591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1783,7 +1783,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mnV-QY-9YW" userLabel="Category">
-                                <rect key="frame" x="16.5" y="200" width="343" height="40"/>
+                                <rect key="frame" x="16" y="200" width="343" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Og-Eo-E83">
                                         <rect key="frame" x="110" y="0.0" width="122" height="40"/>
@@ -1852,7 +1852,7 @@
                                 <rect key="frame" x="16" y="72" width="343" height="64"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Exercise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sB-39-G8K">
-                                        <rect key="frame" x="39" y="6" width="265.5" height="52"/>
+                                        <rect key="frame" x="39.5" y="6" width="265.5" height="52"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="45"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1878,7 +1878,7 @@
                                 <rect key="frame" x="16" y="186" width="343" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strength" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qF-ZQ-K6R">
-                                        <rect key="frame" x="115" y="0.0" width="113.5" height="40"/>
+                                        <rect key="frame" x="115.5" y="0.0" width="113.5" height="40"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="30"/>
                                         <color key="textColor" red="0.65098039215686276" green="0.098039215686274508" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1906,13 +1906,13 @@
                                 <rect key="frame" x="16" y="246" width="343" height="210"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercise Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NuL-z7-q6V">
-                                        <rect key="frame" x="8" y="7.5" width="141.5" height="23"/>
+                                        <rect key="frame" x="8" y="8" width="141.5" height="23"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
                                         <color key="textColor" red="0.65098039215686276" green="0.098039215686274508" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oTv-6E-8gF" userLabel="exerciseField">
-                                        <rect key="frame" x="8" y="40.5" width="326.5" height="30"/>
+                                        <rect key="frame" x="8" y="41" width="327" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -1921,7 +1921,7 @@
                                         </connections>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S2d-3t-JZV" userLabel="SetsReps">
-                                        <rect key="frame" x="8" y="85.5" width="327" height="63"/>
+                                        <rect key="frame" x="8" y="86" width="327" height="63"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WBG-b0-eJG" userLabel="Sets">
                                                 <rect key="frame" x="0.0" y="0.0" width="163.5" height="63"/>
@@ -1972,7 +1972,7 @@
                                         </constraints>
                                     </stackView>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="b55-nT-xOY">
-                                        <rect key="frame" x="8" y="173.5" width="326.5" height="29"/>
+                                        <rect key="frame" x="8" y="174" width="327" height="29"/>
                                         <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
                                         <segments>
                                             <segment title="S"/>
@@ -2158,7 +2158,7 @@
                                 <rect key="frame" x="16" y="64" width="343" height="64"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Exercise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlL-2y-qPz">
-                                        <rect key="frame" x="39" y="6" width="265.5" height="52"/>
+                                        <rect key="frame" x="39.5" y="6" width="265.5" height="52"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="45"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2541,7 +2541,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LWr-r3-lWQ" userLabel="rows">
-                                        <rect key="frame" x="10" y="155.5" width="235" height="56"/>
+                                        <rect key="frame" x="10" y="156" width="235" height="56"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Sb-MG-Vo3" userLabel="col2">
                                                 <rect key="frame" x="0.0" y="0.0" width="235" height="23"/>
@@ -2590,7 +2590,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OlG-dH-ROH" userLabel="editableRows">
-                                        <rect key="frame" x="10" y="148.5" width="235" height="70"/>
+                                        <rect key="frame" x="10" y="149" width="235" height="70"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="39r-ce-4pi" userLabel="col2">
                                                 <rect key="frame" x="0.0" y="0.0" width="235" height="30"/>
@@ -2645,7 +2645,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W90-Cn-66z" userLabel="changeExercise">
-                                        <rect key="frame" x="37.5" y="252" width="180" height="40"/>
+                                        <rect key="frame" x="38" y="252" width="180" height="40"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
                                         <state key="normal" title="Change Exercise" backgroundImage="button">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2655,7 +2655,7 @@
                                         </connections>
                                     </button>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIR-gO-AYC" userLabel="editableButtons">
-                                        <rect key="frame" x="37.5" y="252" width="180" height="40"/>
+                                        <rect key="frame" x="38" y="252" width="180" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3BS-fK-EmJ" userLabel="cancelExercise">
                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="40"/>
@@ -2683,7 +2683,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNF-5W-Wuy" userLabel="deleteExercise">
-                                        <rect key="frame" x="37.5" y="302" width="180" height="40"/>
+                                        <rect key="frame" x="38" y="302" width="180" height="40"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
                                         <state key="normal" title="Delete Exercise" backgroundImage="button">
                                             <color key="titleColor" red="0.65098039215686276" green="0.098039215686274508" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
