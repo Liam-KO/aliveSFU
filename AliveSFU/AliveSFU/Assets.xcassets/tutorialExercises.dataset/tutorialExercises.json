@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Pec Dec",
+    "equipmentName": "Pec Dec Machine",
+    "targetMuscle": "Chest"
+  },
+  {
+    "name": "Reverse Pec Dec",
+    "equipmentName": "Pec Dec Machine",
+    "targetMuscle": "Rear Shoulders"
+  },
+  {
+    "name": "Donkey Calf Raises",
+    "equipmentName": "Donkey Calf Raise Machine",
+    "targetMuscle": "Calves"
+  },
+  {
+    "name": "Seated Calf Raises",
+    "equipmentName": "Seated Calf Raise Machine",
+    "targetMuscle": "Calves"
+  },
+  {
+    "name": "Tricep Pushdowns",
+    "equipmentName": "Tricep Machine",
+    "targetMuscle": "Tricep"
+  },
+  {
+    "name": "Lat Pulldowns",
+    "equipmentName": "Lat Pulldown Machine",
+    "targetMuscle": "Lats"
+  }
+]

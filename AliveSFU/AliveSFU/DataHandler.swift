@@ -9,6 +9,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 class DataHandler {
     
@@ -24,6 +25,20 @@ class DataHandler {
             if (fetchedResult.count == 0) {
                 let mo = NSEntityDescription.insertNewObject(forEntityName: "UserDetails", into: moc)
                 mo.setValue("1", forKey: "primaryKey")
+            }
+        } catch {
+            print("Error setting details")
+        }
+        
+        let bd = NSFetchRequest<NSFetchRequestResult>(entityName: "BuddyDetails")
+        bd.predicate = NSPredicate(format: "primaryKey = 1")
+        
+        do {
+            let fetchedResult = try moc.fetch(bd) as! [NSManagedObject]
+            if (fetchedResult.count == 0) {
+                let mo = NSEntityDescription.insertNewObject(forEntityName: "BuddyDetails", into: moc)
+                mo.setValue("1", forKey: "primaryKey")
+                mo.setValue(false, forKey: "profileExists")
             }
         } catch {
             print("Error setting details")
@@ -535,4 +550,100 @@ class DataHandler {
         }
     }
 
+    class func saveBuddyProfile(bd: BuddyDetails) -> Int {
+        
+        let moc = AppDataController().managedObjectContext
+        
+        // To make sure we have only one user details
+        let details = NSFetchRequest<NSFetchRequestResult>(entityName: "BuddyDetails")
+        details.predicate = NSPredicate(format: "primaryKey = 1")
+        
+        do {
+            var fetchedResult = try moc.fetch(details) as! [NSManagedObject]
+            let mo = fetchedResult[0]
+
+            mo.setValue(bd.gender, forKey: "gender")
+            mo.setValue(bd.ageGroup, forKey: "ageGroup")
+            mo.setValue(bd.fitnessFreq, forKey: "frequency")
+            mo.setValue(bd.personalGoals, forKey: "personalGoals")
+            mo.setValue(true, forKey: "profileExists")
+        } catch {
+            print("Error setting details")
+        }
+        
+        do {
+            try moc.save()
+        } catch let error as NSError {
+            print("Could not save \(error), \(error.userInfo)")
+            return -1
+        }
+        return 0;
+    }
+    
+    class func updateBuddyProfile(bd: BuddyDetails) {
+        let moc = AppDataController().managedObjectContext
+        
+        // To make sure we have only one user details
+        let details = NSFetchRequest<NSFetchRequestResult>(entityName: "BuddyDetails")
+        details.predicate = NSPredicate(format: "primaryKey = 1")
+        
+        do {
+            var fetchedResult = try moc.fetch(details) as! [NSManagedObject]
+            let mo = fetchedResult[0]
+
+            mo.setValue(bd.gender, forKey: "gender")
+            mo.setValue(bd.ageGroup, forKey: "ageGroup")
+            mo.setValue(bd.fitnessFreq, forKey: "frequency")
+            mo.setValue(bd.personalGoals, forKey: "personalGoals")
+        } catch {
+            print("Error setting details")
+        }
+        do {
+            try moc.save()
+        } catch let error as NSError {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
+    
+    class func getBuddyDetails() -> BuddyDetails {
+        
+        let moc = AppDataController().managedObjectContext
+        var bd: BuddyDetails
+        
+        let details = NSFetchRequest<NSFetchRequestResult>(entityName: "BuddyDetails")
+        details.predicate = NSPredicate(format: "primaryKey = 1")
+        do {
+            let fetchedResults = try moc.fetch(details) as! [NSManagedObject]
+            let mo = fetchedResults[0]
+            
+            let gender = mo.value(forKey: "gender") as! Int
+            let ageGr = mo.value(forKey: "ageGroup") as! Int
+            let freq = mo.value(forKey: "frequency") as! Int
+            let personalGoals = mo.value(forKey: "personalGoals") as! String
+            
+            bd = BuddyDetails(ageGroup: ageGr, fitnessFreq: freq, personalGoals: personalGoals, gender: gender)
+            
+        } catch {
+            fatalError("Failed to fetch array! Error: \(error)")
+        }
+        return bd
+    }
+    
+    class func doesBuddyProfileExist() -> Bool {
+        let moc = AppDataController().managedObjectContext
+        
+        let details = NSFetchRequest<NSFetchRequestResult>(entityName: "BuddyDetails")
+        details.predicate = NSPredicate(format: "primaryKey = 1")
+        do {
+            let fetchedResults = try moc.fetch(details) as! [NSManagedObject]
+            let mo = fetchedResults[0]
+            
+            let profileExists = mo.value(forKey: "profileExists") as! Bool
+            
+            return profileExists
+        } catch {
+            fatalError("Failed to fetch array! Error: \(error)")
+        }
+        return false
+    }
 }
